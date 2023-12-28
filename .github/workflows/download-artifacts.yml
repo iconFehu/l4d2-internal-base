@@ -15,4 +15,4 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: MyBuildArtifacts
-        path: D:\a\l4d2-internal-base\l4d2-internal-base\src\Release\pol.dll
+        path: ${{env.GITHUB_WORKSPACE}}/src\Release\pol.dll
