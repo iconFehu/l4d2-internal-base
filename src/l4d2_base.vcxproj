@@ -29,26 +29,27 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -154,7 +155,15 @@
     <ClCompile Include="Entry\Entry.cpp" />
     <ClCompile Include="Features\EnginePrediction\EnginePrediction.cpp" />
     <ClCompile Include="Features\ESP\ESP.cpp" />
-    <ClCompile Include="Features\NoSpread\NoSpread.cpp" />
+    <ClCompile Include="Features\Manager\Manager.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Combat\AimAssist.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Combat\Aimbot.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Player\BunnyHop.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Render\Arraylist.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Combat\NoSpread.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Render\ESPHelper.cpp" />
+    <ClCompile Include="Features\Manager\Module\Utils\FindTarget.cpp" />
+    <ClCompile Include="Features\Manager\RotationManager.cpp" />
     <ClCompile Include="Features\Vars.cpp" />
     <ClCompile Include="Hooks\BaseClient\BaseClient.cpp" />
     <ClCompile Include="Hooks\BasePlayer\BasePlayer.cpp" />
@@ -192,7 +201,17 @@
     <ClInclude Include="Entry\Entry.h" />
     <ClInclude Include="Features\EnginePrediction\EnginePrediction.h" />
     <ClInclude Include="Features\ESP\ESP.h" />
-    <ClInclude Include="Features\NoSpread\NoSpread.h" />
+    <ClInclude Include="Features\Manager\Manager.h" />
+    <ClInclude Include="Features\Manager\Module\ModuleHeader.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Combat\Aimbot.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Combat\AimAssist.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Combat\NoSpread.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Player\BunnyHop.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Render\Arraylist.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Render\ESPHelper.h" />
+    <ClInclude Include="Features\Manager\Module\Utils\FindTarget.h" />
+    <ClInclude Include="Features\Manager\Module\Utils\UtilsCollector.h" />
+    <ClInclude Include="Features\Manager\RotationManager.h" />
     <ClInclude Include="Features\Vars.h" />
     <ClInclude Include="Hooks\BaseClient\BaseClient.h" />
     <ClInclude Include="Hooks\BasePlayer\BasePlayer.h" />
@@ -236,6 +255,7 @@
     <ClInclude Include="SDK\L4D2\Includes\ehandle.h" />
     <ClInclude Include="SDK\L4D2\Includes\globalvars_base.h" />
     <ClInclude Include="SDK\L4D2\Includes\usercmd.h" />
+    <ClInclude Include="SDK\L4D2\Includes\view_shared.h" />
     <ClInclude Include="SDK\L4D2\Interfaces\BaseClientDLL.h" />
     <ClInclude Include="SDK\L4D2\Interfaces\DebugOverlay.h" />
     <ClInclude Include="SDK\L4D2\Interfaces\ClientEntityList.h" />

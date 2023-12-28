@@ -13,3 +13,4 @@ src/Release/vc142.pdb
 *.db-wal
 *.db-shm
 *.opendb
+build

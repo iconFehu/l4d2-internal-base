@@ -32,12 +32,20 @@
     <ClCompile Include="Hooks\EngineVGui\EngineVGui.cpp" />
     <ClCompile Include="Hooks\WndProc\WndProc.cpp" />
     <ClCompile Include="Features\Vars.cpp" />
-    <ClCompile Include="Features\NoSpread\NoSpread.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Combat\NoSpread.cpp" />
     <ClCompile Include="Hooks\SequenceTransitioner\SequenceTransitioner.cpp" />
     <ClCompile Include="Hooks\ModelRender\ModelRender.cpp" />
     <ClCompile Include="Hooks\ModelRenderSystem\ModelRenderSystem.cpp" />
     <ClCompile Include="Hooks\TerrorGameRules\TerrorGameRules.cpp" />
     <ClCompile Include="Features\EnginePrediction\EnginePrediction.cpp" />
+    <ClCompile Include="Features\Manager\Manager.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Player\BunnyHop.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Render\Arraylist.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Combat\Aimbot.cpp" />
+    <ClCompile Include="Features\Manager\RotationManager.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Combat\AimAssist.cpp" />
+    <ClCompile Include="Features\Manager\Module\Utils\FindTarget.cpp" />
+    <ClCompile Include="Features\Manager\Module\Modules\Render\ESPHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Util\Util.h" />
@@ -117,12 +125,23 @@
     <ClInclude Include="SDK\L4D2\Entities\C_TerrorPlayer.h" />
     <ClInclude Include="SDK\L4D2\Entities\C_Infected.h" />
     <ClInclude Include="Hooks\WndProc\WndProc.h" />
-    <ClInclude Include="Features\NoSpread\NoSpread.h" />
     <ClInclude Include="Hooks\SequenceTransitioner\SequenceTransitioner.h" />
     <ClInclude Include="Hooks\ModelRender\ModelRender.h" />
     <ClInclude Include="Hooks\ModelRenderSystem\ModelRenderSystem.h" />
     <ClInclude Include="Hooks\TerrorGameRules\TerrorGameRules.h" />
     <ClInclude Include="Util\XorString\XorString.h" />
     <ClInclude Include="Features\EnginePrediction\EnginePrediction.h" />
+    <ClInclude Include="Features\Manager\Manager.h" />
+    <ClInclude Include="Features\Manager\Module\ModuleHeader.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Player\BunnyHop.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Render\Arraylist.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Combat\Aimbot.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Combat\NoSpread.h" />
+    <ClInclude Include="Features\Manager\RotationManager.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Combat\AimAssist.h" />
+    <ClInclude Include="Features\Manager\Module\Utils\FindTarget.h" />
+    <ClInclude Include="Features\Manager\Module\Utils\UtilsCollector.h" />
+    <ClInclude Include="Features\Manager\Module\Modules\Render\ESPHelper.h" />
+    <ClInclude Include="SDK\L4D2\Includes\view_shared.h" />
   </ItemGroup>
 </Project>
