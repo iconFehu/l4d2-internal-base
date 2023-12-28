@@ -7,6 +7,16 @@ on:
       - completed
 
 jobs:
+  list-files:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: List Files
+      run: |
+        ls -R $GITHUB_WORKSPACE
   download:
     runs-on: ubuntu-latest
 
@@ -15,4 +25,4 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: MyBuildArtifacts
-        path: ${{env.GITHUB_WORKSPACE}}/src\Release\pol.dll
+        path: ${{env.GITHUB_WORKSPACE}}\src\Release\pol.dll
