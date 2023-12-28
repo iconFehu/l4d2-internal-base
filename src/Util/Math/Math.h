@@ -21,6 +21,7 @@ public:
 	void PointsFromBox(const Vector mins, const Vector maxs, Vector* points);
 	void VectorAngles(const Vector& forward, Vector& angles);
 	void AngleVectors(const Vector vAngles, Vector* vForward);
+	Vector AngleVectors(const Vector vAngles);
 	void ClampAngles(Vector& v);
 	void RotateTriangle(Vector2D* v, const float flRotation);
 

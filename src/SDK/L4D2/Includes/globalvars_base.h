@@ -1,6 +1,7 @@
 #pragma once
 
 #include "usercmd.h"
+#include "view_shared.h"
 
 class CGlobalVarsBase
 {

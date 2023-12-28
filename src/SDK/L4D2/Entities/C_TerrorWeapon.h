@@ -78,7 +78,9 @@ public:
 	inline bool CanPrimaryAttack() {
 		return (m_flNextPrimaryAttack() <= I::GlobalVars->curtime);
 	}
-
+	inline bool CanPrimaryAttack(float offset) {
+		return (m_flNextPrimaryAttack() + offset <= I::GlobalVars->curtime);
+	}
 	inline bool CanSecondaryAttack() {
 		return (m_flNextSecondaryAttack() <= I::GlobalVars->curtime);
 	}

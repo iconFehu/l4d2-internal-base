@@ -229,6 +229,9 @@ public:
 	inline bool CanAttackFull() {
 		return (CanAttack() && (m_flNextAttack() <= I::GlobalVars->curtime));
 	}
+	inline bool CanAttackFull(float timeToFaster) {
+		return (CanAttack() && ((m_flNextAttack() - timeToFaster) <= I::GlobalVars->curtime));
+	}
 };
 
 class C_SurvivorBot : public C_TerrorPlayer

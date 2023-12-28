@@ -6,7 +6,8 @@ using namespace Hooks;
 
 void __fastcall TerrorPlayer::AvoidPlayers::Detour(C_TerrorPlayer* pThis, void* edx, CUserCmd* pCmd)
 {
-	Func.Original<FN>()(pThis, edx, pCmd);
+	return;
+	//Func.Original<FN>()(pThis, edx, pCmd);
 }
 
 void TerrorPlayer::Init()

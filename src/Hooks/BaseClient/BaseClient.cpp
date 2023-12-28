@@ -1,4 +1,5 @@
 #include "BaseClient.h"
+#include "../../Features/Manager/Manager.h"
 
 using namespace Hooks;
 
@@ -19,6 +20,27 @@ void __fastcall BaseClient::LevelShutdown::Detour(void* ecx, void* edx)
 
 void __fastcall BaseClient::FrameStageNotify::Detour(void* ecx, void* edx, ClientFrameStage_t curStage)
 {
+	switch (curStage)
+	{
+	case FRAME_UNDEFINED:
+		break;
+	case FRAME_START:
+		break;
+	case FRAME_NET_UPDATE_START:
+		break;
+	case FRAME_NET_UPDATE_POSTDATAUPDATE_START:
+		break;
+	case FRAME_NET_UPDATE_POSTDATAUPDATE_END:
+		break;
+	case FRAME_NET_UPDATE_END:
+		break;
+	case FRAME_RENDER_START:
+		break;
+	case FRAME_RENDER_END:
+		break;
+	default:
+		break;
+	}
 	Table.Original<FN>(Index)(ecx, edx, curStage);
 }
 

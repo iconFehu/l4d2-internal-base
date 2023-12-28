@@ -12,5 +12,6 @@ namespace Hooks
 		LRESULT CALLBACK Detour(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 		void Init();
+		void UnInitialize();
 	}
 }
