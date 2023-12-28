@@ -1,0 +1,18 @@
+name: Download Artifacts
+
+on:
+  workflow_run:
+    workflows: ["MSBuild"]
+    types:
+      - completed
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: MyBuildArtifacts
+        path: ${{env.GITHUB_WORKSPACE}}/build
