@@ -48,4 +48,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: MyBuildArtifacts
-        path: ${{env.GITHUB_WORKSPACE}}/output/test.dll # Replace with the actual path to your build artifacts
+        path: ../output/test.dll # Replace with the actual path to your build artifacts
