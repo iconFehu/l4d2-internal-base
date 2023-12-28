@@ -17,3 +17,8 @@ void WndProc::Init()
 
 	oWndProc = reinterpret_cast<WNDPROC>(SetWindowLongW(hwGame, GWL_WNDPROC, reinterpret_cast<LONG>(Detour)));
 }
+
+void WndProc::UnInitialize()
+{
+	SetWindowLongW(hwGame, GWL_WNDPROC, reinterpret_cast<LONG_PTR>(oWndProc));
+}

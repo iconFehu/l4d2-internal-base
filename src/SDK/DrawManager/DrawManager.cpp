@@ -140,8 +140,25 @@ void CGlobal_DrawManager::Circle(const int x, const int y, const int r, const in
 		I::MatSystemSurface->DrawTexturedPolygon(s, vecVertices.data(), true);
 	}
 }
+int CGlobal_DrawManager::GetFontWidth(const EFonts& font, const char* const str)
+{
+	va_list va_alist;
+	char cbuffer[1024] = { '\0' };
+	wchar_t wstr[1024] = { '\0' };
 
-int CGlobal_DrawManager::GetFontHeight(const EFonts& font) const
+	va_start(va_alist, str);
+	vsprintf_s(cbuffer, str, va_alist);
+	va_end(va_alist);
+
+	wsprintfW(wstr, _(L"%hs"), cbuffer);
+
+	const HFont fnt = m_Fonts[font].m_hFont;
+
+	int w = 0, h = 0;
+	I::MatSystemSurface->GetTextSize(fnt, wstr, w, h);
+	return w;
+}
+int CGlobal_DrawManager::GetFontHeight(const EFonts& font)
 {
 	return m_Fonts.at(font).m_nTall;
 }

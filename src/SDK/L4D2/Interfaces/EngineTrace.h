@@ -225,12 +225,32 @@ public:
 	}
 };
 
+
 class CTraceFilter : public ITraceFilter
 {
 public:
 	virtual TraceType_t	GetTraceType() const {
 		return TRACE_EVERYTHING;
 	}
+};
+class CTraceFilterHitscan : public CTraceFilter
+{
+public:
+	CTraceFilterHitscan() {
+		m_pIgnore = nullptr;
+	}
+
+	CTraceFilterHitscan(IHandleEntity* pIgnore) {
+		m_pIgnore = pIgnore;
+	}
+
+public:
+	virtual bool ShouldHitEntity(IHandleEntity* pServerEntity, int contentsMask) {
+		return (pServerEntity != m_pIgnore);
+	}
+
+private:
+	IHandleEntity* m_pIgnore = nullptr;
 };
 
 class CTraceFilterHitAll : public CTraceFilter

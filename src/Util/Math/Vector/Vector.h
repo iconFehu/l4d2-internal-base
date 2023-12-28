@@ -234,6 +234,11 @@ public:
 		z = (a.z + b.z);
 	}
 
+	Vector time(float x, float y, float z)
+	{
+		return Vector(this->x * x, this->y * y, this->z * z);
+	}
+
 public:
 	vec_t x, y, z;
 };

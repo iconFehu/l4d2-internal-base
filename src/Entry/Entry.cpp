@@ -1,4 +1,5 @@
 #include "Entry.h"
+#include "../Features/Manager/Manager.h"
 
 void CGlobal_ModuleEntry::Load()
 {
@@ -43,4 +44,18 @@ void CGlobal_ModuleEntry::Load()
 
 	G::Draw.Init();
 	G::Hooks.Init();
+	F::FeatureManager.Init();
+}
+
+void CGlobal_ModuleEntry::Unload()
+{
+	XASSERT(MH_Uninitialize() != MH_STATUS::MH_OK);
+	Hooks::WndProc::UnInitialize();
+
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
+
+bool CGlobal_ModuleEntry::ShouldUnload()
+{
+	return GetAsyncKeyState(VK_END) & 0x8000;
 }

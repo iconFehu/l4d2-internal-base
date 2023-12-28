@@ -2,14 +2,94 @@
 
 void CGlobal_GameUtil::FixMovement(const Vector vAngle, CUserCmd* cmd)
 {
-	Vector vMove = { cmd->forwardmove, cmd->sidemove, cmd->upmove }, vMoveAng;
+	/*Vector vMove = { cmd->forwardmove, cmd->sidemove, cmd->upmove }, vMoveAng;
 	U::Math.VectorAngles(vMove, vMoveAng);
 
 	const float flSpeed = ::sqrtf(vMove.x * vMove.x + vMove.y * vMove.y);
 	const float flYaw = DEG2RAD(vAngle.y - cmd->viewangles.y + vMoveAng.y);
 
 	cmd->forwardmove = (::cosf(flYaw) * flSpeed);
-	cmd->sidemove = (::sinf(flYaw) * flSpeed);
+	cmd->sidemove = (::sinf(flYaw) * flSpeed);*/
+	float view = U::Math.NormalizeAngle(vAngle.y - cmd->viewangles.y - 23.5f - 135);
+	int diff = static_cast<int>((view + 180) / 45);
+
+	float strafe = cmd->sidemove;
+	float forward = cmd->forwardmove;
+	float calcForward = 0;
+	float calcStrafe = 0;
+
+	switch (diff)
+	{
+		case 0:
+			calcForward = forward;
+			calcStrafe = strafe;
+			break;
+		case 1:
+			calcForward += forward;
+			calcStrafe -= forward;
+			calcForward += strafe;
+			calcStrafe += strafe;
+			break;
+		case 2:
+			calcForward = strafe;
+			calcStrafe = -forward;
+			break;
+		case 3:
+			calcForward -= forward;
+			calcStrafe -= forward;
+			calcForward += strafe;
+			calcStrafe -= strafe;
+			break;
+		case 4:
+			calcForward = -forward;
+			calcStrafe = -strafe;
+			break;
+		case 5:
+			calcForward -= forward;
+			calcStrafe += forward;
+			calcForward -= strafe;
+			calcStrafe -= strafe;
+			break;
+		case 6:
+			calcForward = -strafe;
+			calcStrafe = forward;
+			break;
+		case 7:
+			calcForward += forward;
+			calcStrafe += forward;
+			calcForward -= strafe;
+			calcStrafe += strafe;
+			break;
+		default:
+			break;
+	}
+
+	cmd->forwardmove = calcForward;
+	cmd->sidemove = calcStrafe;
+}
+
+bool CGlobal_GameUtil::IsVisible(Vector start, Vector end, ITraceFilter* filter)
+{
+	CGameTrace trace;
+	const uint32_t mask = (MASK_SHOT | CONTENTS_GRATE);
+	Trace(start, end, mask, filter, &trace);
+	return trace.fraction >= 1.f;
+}
+
+bool CGlobal_GameUtil::IsHitEntity(Vector start, Vector end, C_BaseEntity* pEntity, ITraceFilter* filter)
+{
+	CGameTrace trace;
+	const uint32_t mask = (MASK_SHOT | CONTENTS_GRATE);
+	Trace(start, end, mask, filter, &trace);
+	return trace.m_pEnt && trace.m_pEnt->GetClientClass()->m_ClassID != EClientClass::CBaseDoor && trace.m_pEnt->entindex() == pEntity->entindex();
+}
+
+C_BaseEntity* CGlobal_GameUtil::GetHitEntity(Vector start, Vector end, ITraceFilter* filter)
+{
+	CGameTrace trace;
+	const uint32_t mask = (MASK_SHOT | CONTENTS_GRATE);
+	Trace(start, end, mask, filter, &trace);
+	return trace.m_pEnt;
 }
 
 void CGlobal_GameUtil::Trace(const Vector& start, const Vector& end, unsigned int mask, ITraceFilter* filter, trace_t* trace)
