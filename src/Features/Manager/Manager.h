@@ -13,11 +13,18 @@ namespace F {
 
 	public:
 		std::vector<Module*> featurelist;
-		BunnyHopModule::BunnyHop* bhop = &BunnyHopModule::BunnyHop();
-		ArraylistModule::Arraylist* arraylist = &ArraylistModule::Arraylist();
-		AimbotModule::Aimbot* aimbot = &AimbotModule::Aimbot();
-		NoSpreadModule::NoSpread* noSpread = &NoSpreadModule::NoSpread();
-		ESPHelperModule::ESPHelper* espHelper = &ESPHelperModule::ESPHelper();
+		//real class
+		BunnyHopModule::BunnyHop bhop = BunnyHopModule::BunnyHop();
+		ArraylistModule::Arraylist arraylist = ArraylistModule::Arraylist();
+		AimbotModule::Aimbot aimbot = AimbotModule::Aimbot();
+		NoSpreadModule::NoSpread noSpread = NoSpreadModule::NoSpread();
+		ESPHelperModule::ESPHelper espHelper = ESPHelperModule::ESPHelper();
+		//pointer
+		BunnyHopModule::BunnyHop* bhop_ptr = &bhop;
+		ArraylistModule::Arraylist* arraylist_ptr = &arraylist;
+		AimbotModule::Aimbot* aimbot_ptr = &aimbot;
+		NoSpreadModule::NoSpread* noSpread_ptr = &noSpread;
+		ESPHelperModule::ESPHelper* espHelper_ptr = &espHelper;
 		void Init();
 		void onRender2D();
 		void onCreateMove(CUserCmd* cmd, C_TerrorPlayer* pLocal);

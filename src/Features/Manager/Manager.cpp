@@ -41,11 +41,11 @@ namespace F {
 
 	void Manager::Init()
 	{
-		featurelist.push_back(bhop);
-		featurelist.push_back(arraylist);
-		featurelist.push_back(aimbot);
-		featurelist.push_back(noSpread);
-		featurelist.push_back(espHelper);
+		featurelist.push_back(bhop_ptr);
+		featurelist.push_back(arraylist_ptr);
+		featurelist.push_back(aimbot_ptr);
+		featurelist.push_back(noSpread_ptr);
+		featurelist.push_back(espHelper_ptr);
 	}
 
 	void Manager::onCreateMove(CUserCmd* cmd, C_TerrorPlayer* pLocal)
