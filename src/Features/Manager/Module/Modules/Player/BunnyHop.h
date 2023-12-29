@@ -2,7 +2,7 @@
 #include "../../ModuleHeader.h"
 
 namespace F {
-	namespace BHop {
+	namespace BunnyHopModule {
 		class BunnyHop : public Module
 		{
 		public:
@@ -11,10 +11,6 @@ namespace F {
 			void onRender2D() override;
 		private:
 
-		};
-		inline BunnyHop* Getinstance() {
-			static BunnyHop hop = BunnyHop();
-			return &hop;
 		};
 	};
 };

@@ -11,9 +11,5 @@ namespace F {
 		private:
 
 		};
-		inline Arraylist* Getinstance() {
-			static Arraylist arraylist = Arraylist();
-			return &arraylist;
-		};
 	};
 };
