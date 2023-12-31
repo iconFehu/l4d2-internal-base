@@ -11,9 +11,5 @@ namespace F {
 		private:
 
 		};
-		inline ESPHelper* Getinstance() {
-			static ESPHelper arraylist = ESPHelper();
-			return &arraylist;
-		};
 	};
 };

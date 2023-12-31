@@ -14,3 +14,4 @@ src/Release/vc142.pdb
 *.db-shm
 *.opendb
 build
+!CMakeLists.txt

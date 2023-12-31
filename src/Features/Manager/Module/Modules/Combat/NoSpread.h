@@ -11,9 +11,5 @@ namespace F {
 		private:
 
 		};
-		inline NoSpread* Getinstance() {
-			static NoSpread hop = NoSpread();
-			return &hop;
-		};
 	};
 };

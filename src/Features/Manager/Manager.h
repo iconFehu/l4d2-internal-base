@@ -8,14 +8,27 @@
 #include "Module/Modules/Render/ESPHelper.h"
 #include "Module/Modules/Combat/Aimbot.h"
 #include "Module/Modules/Combat/NoSpread.h"
-#include "Module/Modules/Combat/AimAssist.h"
-class Manager {
+namespace F {
+	class Manager {
 
-public:
-	std::vector<Module*> featurelist;
-	void Init();
-	void onRender2D();
-	void onCreateMove(CUserCmd* cmd, C_TerrorPlayer* pLocal);
-	void onKey();
-};
-namespace F { inline Manager FeatureManager; }
+	public:
+		std::vector<Module*> featurelist;
+		//real class
+		BunnyHopModule::BunnyHop bhop = BunnyHopModule::BunnyHop();
+		ArraylistModule::Arraylist arraylist = ArraylistModule::Arraylist();
+		AimbotModule::Aimbot aimbot = AimbotModule::Aimbot();
+		NoSpreadModule::NoSpread noSpread = NoSpreadModule::NoSpread();
+		ESPHelperModule::ESPHelper espHelper = ESPHelperModule::ESPHelper();
+		//pointer
+		BunnyHopModule::BunnyHop* bhop_ptr = &bhop;
+		ArraylistModule::Arraylist* arraylist_ptr = &arraylist;
+		AimbotModule::Aimbot* aimbot_ptr = &aimbot;
+		NoSpreadModule::NoSpread* noSpread_ptr = &noSpread;
+		ESPHelperModule::ESPHelper* espHelper_ptr = &espHelper;
+		void Init();
+		void onRender2D();
+		void onCreateMove(CUserCmd* cmd, C_TerrorPlayer* pLocal);
+		void onKey();
+	};
+	inline Manager FeatureManager; 
+}

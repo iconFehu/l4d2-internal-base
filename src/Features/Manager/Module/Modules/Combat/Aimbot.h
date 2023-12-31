@@ -1,7 +1,8 @@
 #pragma once
 #include "../../ModuleHeader.h"
 namespace F {
-	namespace AimbotModule {
+	namespace AimbotModule
+	{
 		class Aimbot : public Module
 		{
 		public:
@@ -14,9 +15,5 @@ namespace F {
 		private:
 
 		};
-		inline Aimbot* Getinstance() {
-			static Aimbot hop = Aimbot();
-			return &hop;
-		};
-	};
+	}
 };
