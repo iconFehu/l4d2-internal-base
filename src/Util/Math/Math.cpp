@@ -102,6 +102,24 @@ void CUtil_Math::AngleVectors(const Vector vAngles, Vector* vForward)
 	}
 }
 
+Vector CUtil_Math::AngleVectors(const Vector vAngles)
+{
+	Vector vForward = Vector();
+	float sp, sy, cp, cy;
+
+	const float flX = DEG2RADF(vAngles.x);
+	sp = ::sinf(flX);
+	cp = ::cosf(flX);
+
+	const float flY = DEG2RADF(vAngles.y);
+	sy = ::sinf(flY);
+	cy = ::cosf(flY);
+	vForward.x = (cp * cy);
+	vForward.y = (cp * sy);
+	vForward.z = -sp;
+	return vForward;
+}
+
 void CUtil_Math::ClampAngles(Vector& v)
 {
 	v.x = Max(-89.0f, Min(89.0f, NormalizeAngle(v.x)));
@@ -146,7 +164,6 @@ float CUtil_Math::GetFovBetween(const Vector vSrc, const Vector vDst)
 
 	return result;
 }
-
 float CUtil_Math::NormalizeAngle(const float ang)
 {
 	if (!::isfinite(ang))

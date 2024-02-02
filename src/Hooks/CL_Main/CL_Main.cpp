@@ -8,11 +8,11 @@ void __cdecl CL_Main::CL_Move::Detour(float accumulated_extra_samples, bool bFin
 {
 	Func.Original<FN>()(accumulated_extra_samples, bFinalTick);
 
-	if (GetAsyncKeyState(VK_XBUTTON1))
-	{
-		for (int n = 0; n < 5; n++)
-			Func.Original<FN>()(accumulated_extra_samples, bFinalTick);
-	}
+	//if (GetAsyncKeyState(VK_XBUTTON1))
+	//{
+		//for (int n = 0; n < 5; n++)
+			//Func.Original<FN>()(accumulated_extra_samples, bFinalTick);
+	//}
 }
 
 void CL_Main::Init()

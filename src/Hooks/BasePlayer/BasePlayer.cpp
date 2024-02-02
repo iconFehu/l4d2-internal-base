@@ -1,6 +1,7 @@
 #include "BasePlayer.h"
 
 #include "../../Features/Vars.h"
+#include "../../Features/Manager/Manager.h"
 
 using namespace Hooks;
 

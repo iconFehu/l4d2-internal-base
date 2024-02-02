@@ -37,60 +37,60 @@ void CFeatures_ESP::Render()
 			case CTerrorPlayer:
 			case SurvivorBot:
 			{
-				C_TerrorPlayer* pPlayer = pEntity->As<C_TerrorPlayer*>();
+				//C_TerrorPlayer* pPlayer = pEntity->As<C_TerrorPlayer*>();
 
-				if (pPlayer->deadflag() || !GetBounds(pPlayer, x, y, w, h))
-					break;
+				//if (pPlayer->deadflag() || !GetBounds(pPlayer, x, y, w, h))
+				//	break;
 
-				const int nDrawX = x + (w / 2);
-				int nDrawY = y + (h / 2);
+				//const int nDrawX = x + (w / 2);
+				//int nDrawY = y + (h / 2);
 
-				const int nHealth = pPlayer->GetActualHealth(); //Returns health including the buffer from pills etc.
-				const int nMaxHealth = pPlayer->GetMaxHealth();
+				//const int nHealth = pPlayer->GetActualHealth(); //Returns health including the buffer from pills etc.
+				//const int nMaxHealth = pPlayer->GetMaxHealth();
 
-				const bool bIsSurvivor = (pPlayer->GetTeamNumber() == TEAM_SURVIVOR);
+				//const bool bIsSurvivor = (pPlayer->GetTeamNumber() == TEAM_SURVIVOR);
 
-				const Color clrHealth = G::Util.GetHealthColor(nHealth, nMaxHealth);
-				const Color clrTeam = bIsSurvivor ? Color(15, 150, 150, 255) : Color(150, 15, 15, 255);
+				//const Color clrHealth = G::Util.GetHealthColor(nHealth, nMaxHealth);
+				//const Color clrTeam = bIsSurvivor ? Color(15, 150, 150, 255) : Color(150, 15, 15, 255);
 
-				if (I::EngineClient->GetPlayerInfo(n, &pi))
-				{
-					G::Draw.String(EFonts::ESP_NAME, nDrawX, nDrawY, clrTeam, TXT_CENTERXY, pi.name);
-					nDrawY += G::Draw.GetFontHeight(EFonts::ESP_NAME);
-				}
-				
-				G::Draw.String(EFonts::ESP, nDrawX, nDrawY, clrHealth, TXT_CENTERXY, L"%i / %ihp", nHealth, nMaxHealth);
-				nDrawY += G::Draw.GetFontHeight(EFonts::ESP);
+				//if (I::EngineClient->GetPlayerInfo(n, &pi))
+				//{
+				//	G::Draw.String(EFonts::ESP_NAME, nDrawX, nDrawY, clrTeam, TXT_CENTERXY, pi.name);
+				//	nDrawY += G::Draw.GetFontHeight(EFonts::ESP_NAME);
+				//}
+				//
+				//G::Draw.String(EFonts::ESP, nDrawX, nDrawY, clrHealth, TXT_CENTERXY, L"%i / %ihp", nHealth, nMaxHealth);
+				//nDrawY += G::Draw.GetFontHeight(EFonts::ESP);
 
-				if (bIsSurvivor)
-				{
-					C_BaseCombatWeapon* pWeapon = pPlayer->GetActiveWeapon();
+				//if (bIsSurvivor)
+				//{
+				//	C_BaseCombatWeapon* pWeapon = pPlayer->GetActiveWeapon();
 
-					if (pWeapon)
-					{
-						G::Draw.String(EFonts::ESP_WEAPON, nDrawX, nDrawY, { 204, 204, 204, 255 }, TXT_CENTERXY, pWeapon->GetPrintName());
-						nDrawY += G::Draw.GetFontHeight(EFonts::ESP_WEAPON);
-					}
-				}
+				//	if (pWeapon)
+				//	{
+				//		G::Draw.String(EFonts::ESP_WEAPON, nDrawX, nDrawY, { 204, 204, 204, 255 }, TXT_CENTERXY, pWeapon->GetPrintName());
+				//		nDrawY += G::Draw.GetFontHeight(EFonts::ESP_WEAPON);
+				//	}
+				//}
 
 				break;
 			}
 			case CWeaponSpawn:
 			{
-				C_WeaponSpawn* pSpawn = pEntity->As<C_WeaponSpawn*>();
+				/*C_WeaponSpawn* pSpawn = pEntity->As<C_WeaponSpawn*>();
 
 				if (!GetBounds(pSpawn, x, y, w, h))
 					break;
 
 				const int nID = U::Math.Clamp(pSpawn->GetWeaponID(), 0, 38);
-				G::Draw.String(EFonts::ESP, x + (w / 2), y + (h / 2), g_aSpawnInfo[nID].m_Color, TXT_CENTERXY, g_aSpawnInfo[nID].m_szName);
+				G::Draw.String(EFonts::ESP, x + (w / 2), y + (h / 2), g_aSpawnInfo[nID].m_Color, TXT_CENTERXY, g_aSpawnInfo[nID].m_szName);*/
 
 				break;
 			}
 			case CPropMountedGun:
 			case CPropMinigun:
 			{
-				C_BaseMountedWeapon* pMounted = pEntity->As<C_BaseMountedWeapon*>();
+				/*C_BaseMountedWeapon* pMounted = pEntity->As<C_BaseMountedWeapon*>();
 
 				if (!GetBounds(pMounted, x, y, w, h))
 					break;
@@ -108,7 +108,7 @@ void CFeatures_ESP::Render()
 				{
 					G::Draw.String(EFonts::ESP, nDrawX, nDrawY, { 240, 230, 140, 255 }, TXT_CENTERXY, L"OVERHEATED");
 					nDrawY += G::Draw.GetFontHeight(EFonts::ESP);
-				}
+				}*/
 
 				break;
 			}

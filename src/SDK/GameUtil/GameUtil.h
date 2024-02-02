@@ -6,6 +6,9 @@ class CGlobal_GameUtil
 {
 public:
 	void FixMovement(const Vector vAngle, CUserCmd* cmd);
+	bool IsVisible(Vector start, Vector end, ITraceFilter* filter);
+	bool IsHitEntity(Vector start, Vector end, C_BaseEntity* pEntity, ITraceFilter* filter);
+	C_BaseEntity* GetHitEntity(Vector start, Vector end, ITraceFilter* filter);
 	void Trace(const Vector& start, const Vector& end, unsigned int mask, ITraceFilter* filter, trace_t* trace);
 
 	bool W2S(const Vector vWorld, Vector& vScreen);

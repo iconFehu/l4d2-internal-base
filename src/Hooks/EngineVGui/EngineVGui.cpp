@@ -1,6 +1,6 @@
 #include "EngineVGui.h"
 
-#include "../../Features/ESP/ESP.h"
+#include "../../Features/Manager/Manager.h"
 
 using namespace Hooks;
 
@@ -22,9 +22,9 @@ void __fastcall EngineVGui::ActivateGameUI::Detour(void* ecx, void* edx)
 void __fastcall EngineVGui::Paint::Detour(void* ecx, void* edx, int mode)
 {
 	Table.Original<FN>(Index)(ecx, edx, mode);
-
 	if (!(mode & PAINT_UIPANELS))
 		return;
+	F::FeatureManager.onKey();
 
 	if (!G::Draw.m_nScreenW)
 		G::Draw.m_nScreenW = I::BaseClient->GetScreenWidth();
@@ -34,9 +34,8 @@ void __fastcall EngineVGui::Paint::Detour(void* ecx, void* edx, int mode)
 
 	I::MatSystemSurface->StartDrawing();
 	{
-		F::ESP.Render();
-
-		G::Draw.String(EFonts::DEBUG, 5, 5, { 204, 204, 204, 255 }, TXT_DEFAULT, _(L"Polonium - Left 4 dead 2 by Lak3 (unknowncheats.me)"));
+		F::FeatureManager.onRender2D();
+		G::Draw.String(EFonts::DEBUG, 5, 5, { 204, 204, 204, 255 }, TXT_DEFAULT, _(L"None - Left 4 dead 2 by Lak3(OC), crave#6948"));
 	}
 	I::MatSystemSurface->FinishDrawing();
 }
