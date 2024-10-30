@@ -15,7 +15,7 @@ bool CGlobal_KeyValues::LoadFromBuffer(KeyValues* pKval, const char* const szNam
 
 KeyValues* CGlobal_KeyValues::Init(KeyValues* pKval, const char* const szName)
 {
-	static const DWORD dwKeyValsInit = U::Pattern.Find("client.dll", "55 8B EC 33 C0 56 8B F1 C7 06 ? ? ? ? 89 46 18 89 46 14 89 46 1C 89 46 04 89 46 08 89 46 0C 66 89 46 10 89 46 20 66 89 46 12 FF 15 ? ? ? ? 8B 4D 08 8B 10 8B 52 0C 6A 01 51 8B C8 FF D2 89 06 8B C6 5E 5D C2 04 00");
+	static const DWORD dwKeyValsInit = U::Pattern.Find("client.dll", "55 8B EC 33 C0 56 8B F1 C7 06");
 	XASSERT(dwKeyValsInit == 0x0);
 
 	if (!dwKeyValsInit)
